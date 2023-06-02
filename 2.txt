@@ -1,0 +1,23 @@
+import pandas as pd
+import numpy as np
+df =  pd.read_csv('pseudo_facebook.csv')
+df.head()
+d_f = df[0:10]
+d_f
+d__f = df[['gender', 'tenure']]
+d__f
+Sorted_by_Gender = df.sort_values(by='gender')
+Sorted_by_Gender.head()
+df.transpose()
+df.shape
+x = np.array([[1,2,3], [7,8,9]])      
+x
+np.reshape(x, (3, 2))
+Data1 = pd.DataFrame({'students': ['Varun', 'Rohit', 'Vipul', 'Rushikesh'],
+                    'subject': ['Maths', 'Bio', 'Marathi', 'Hindi']})
+Data2 = pd.DataFrame({'students': ['Varun', 'Rohit', 'Vipul', 'Rushikesh'],
+                    'birth_year': [2001, 2002, 2003, 2004]})
+display(Data1, Data2)
+Merged_Data = pd.merge(Data1, Data2)
+Merged_Data
+df

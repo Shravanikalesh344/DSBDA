@@ -1,0 +1,27 @@
+import pandas as pd
+pd.plotting.register_matplotlib_converters() #It registers pandas formaters and converters with matplotlib
+import matplotlib.pyplot as plt
+%matplotlib inline
+import numpy as np
+import seaborn as sns
+df =  pd.read_csv('AirQualityodisha.csv')
+df
+df.rename(columns={'PM 2.5':'PM'}, inplace=True)
+df.tail()
+df.isnull().sum()
+df['PM'] = df['PM'].replace(np.nan, 0)
+df.isna().sum()
+df.PM.first_valid_index()
+df.head()
+df.rename(columns={'Location of Monitoring Station':'Location'}, inplace=True )
+df.head()
+from sklearn.linear_model import LinearRegression 
+X = df['SO2']
+Y = df['NO2']
+df.plot(kind= 'scatter', x='SO2' , y='NO2')
+sns.scatterplot( x=df['SO2'] , y=df['NO2'])
+lm = LinearRegression(fit_intercept=False)
+lm.fit(X,Y)
+lm.coef_
+lm.predict([[8]])
+df
